@@ -29,7 +29,7 @@ function nameChange(beers){
     const {name, abv, label, type} = beers[i];
     var hola = label.split("/");
     var nombre = beers[i].name.split(" ")
-    hola[hola.length-1] = unir(nombre,"");
+    hola[hola.length-1] = unir(nombre,"-");
     var url = unir(hola,"/");
     beers[i].label = url;
   }
