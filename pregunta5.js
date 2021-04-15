@@ -3,7 +3,7 @@
  * los archivos de las etiquetas (label). Dicha actualizacion debe mantener la carpeta.
  * 
  * El nuevo repositorio se encuentra en SharePoint Online, en un sitio de Tecnoshare, por tanto la url de la etiqueta quedará de la siguiente forma:
- * https://tecnoshare.sharepoint.com/sites/beer/[carpeta]/[nombre_archivo]
+ * https://tecnoshare.sharepoint.com/sites/beer/[carpeta]/creo
  * 
  * Ademas se requiere que el nombre del archivo sea reemplazado por el nombre de la cerveza por ejemplo para Darkness sera:
  * https://tecnoshare.sharepoint.com/sites/beer/lnxbIV/darkness.png
@@ -12,6 +12,8 @@
  /*
   Beers
 */
+
+
 const beers = [
     { name: 'Purple Iris', abv: 6.8, label: 'https://s3.amazonaws.com/brewerydbapi/beer/dMLwGo/upload_yiUllE-large.png', type: 'IPA' },
     { name: 'Orange Blossom Pilsner', abv: 5.5, label: 'https://s3.amazonaws.com/brewerydbapi/beer/Rczcb9/upload_9Nhxxl-large.png', type: 'Pilsner' },
@@ -20,3 +22,31 @@ const beers = [
     { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
 ];
 
+
+
+function nameChange(beers){
+  for(let i = 0; i<beers.length;i++){
+    const {name, abv, label, type} = beers[i];
+    var hola = label.split("/");
+    var nombre = beers[i].name.split(" ")
+    hola[hola.length-1] = unir(nombre,"");
+    var url = unir(hola,"/");
+    beers[i].label = url;
+  }
+}
+
+
+function unir(e,x){
+  string = "";
+  for(let i = 0; i<e.length; i++){
+    if(i!=e.length-1){
+      string = string + e[i] + x;
+    }else{
+      string = string + e[i];
+    }
+  }
+  return string;
+}
+
+console.log(nameChange(beers));
+console.log(beers);

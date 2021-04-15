@@ -3,9 +3,27 @@
 // si la longitud del array es < 3 se debe retornar undefined
 
 const greater3 = nums => {
-    
-}
+    if(nums.length<3){
+        return undefined;
+    }else{
+        function comparar(a,b){return b-a;}
+        nums.sort(comparar);
+        var count = 3;
+        var resultado;
+        for (let i = 0; i < nums.length; i++) {
+            if(nums[i]!=nums[i+1]){
+                count--;
+                if(count===0){
+                    resultado = nums[i];
+                    i=nums.length;
+                }
+            }
+        }
+        return resultado;
+    }   
 
+
+}
 
 // TESTs no modificar
 console.log(greater3([4,3,4,5,1]) === 3);

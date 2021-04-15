@@ -3,12 +3,26 @@
  * solo los numeros pares y solo numeros impares respectivamente
  */
 
+
 const even = function(numbers){
-    
+    var pares =[];
+    for(var i = 0; i < numbers.length; i++){
+        if(numbers[i]%2===0){
+            pares = [...pares, numbers[i]];
+        }
+    }
+    return pares;
 }
 
-const odd = function(numbers){
 
+const odd = function(numbers){
+    var inpares =[];
+    for(var i = 0; i < numbers.length; i++){
+        if(numbers[i]%2===1){
+            inpares = [...inpares, numbers[i]];
+        }
+    }
+    return inpares;
 }
 
 // TESTS (no modificar)
